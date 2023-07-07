@@ -8,6 +8,7 @@ const CartWidget = () => {
       <span className="cart-notification">3</span>
     </div>
   );
+  
 };
 
 export default CartWidget;

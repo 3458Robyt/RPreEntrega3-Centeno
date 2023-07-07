@@ -6,6 +6,7 @@ const ItemListContainer = ({ greeting }) => {
       <h2>{greeting}</h2>
     </div>
   );
+  
 };
 
 export default ItemListContainer;

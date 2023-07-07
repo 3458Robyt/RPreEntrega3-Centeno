@@ -12,6 +12,7 @@ const App = () => {
       <ItemListContainer greeting="¡Bienvenido!" />
     </div>
   );
+  
 };
 
 export default App;
