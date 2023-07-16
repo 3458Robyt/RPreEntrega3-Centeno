@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ addToCart }) => {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let apiUrl = 'https://fakestoreapi.com/products';
-    if (categoryId) {
-      apiUrl += `?category=${categoryId}`;
-    }
+    const fetchProducts = async () => {
+      try {
+        let apiUrl = 'https://fakestoreapi.com/products';
+        if (categoryId) {
+          apiUrl += `?category=${categoryId}`;
+        }
 
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
         setProducts(data);
         setLoading(false);
-      })
-      .catch(error => console.log(error));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProducts();
   }, [categoryId]);
 
   if (loading) {
@@ -36,6 +41,7 @@ const ItemListContainer = () => {
             <img src={product.image} alt={product.title} style={{ width: '200px' }} />
             <p>{product.description}</p>
             <p>Precio: ${product.price}</p>
+            <button onClick={() => addToCart(product)}>Agregar al carrito</button>
           </li>
         ))}
       </ul>

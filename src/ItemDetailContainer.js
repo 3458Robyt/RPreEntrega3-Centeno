@@ -1,23 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // Aquí puedes realizar la lógica para cargar los detalles del producto según el ID del item
-    // Puedes utilizar el hook useEffect para hacerlo una vez que el componente se monta
-    // o cuando el ID del item cambie
+    fetch(`https://fakestoreapi.com/products/${id}`)
+      .then(response => response.json())
+      .then(data => setProduct(data))
+      .catch(error => console.log(error));
   }, [id]);
+
+  if (!product) {
+    return <div>Cargando...</div>;
+  }
 
   return (
     <div className="container mt-4">
-      <h2>Detalle de Producto</h2>
-      <div>
-        <h3>Nombre del Producto</h3>
-        <p>Descripción del producto</p>
-        <p>Precio: $99.99</p>
-      </div>
+      <h2>{product.title}</h2>
+      <p>{product.description}</p>
+      <p>Precio: ${product.price}</p>
     </div>
   );
 };
