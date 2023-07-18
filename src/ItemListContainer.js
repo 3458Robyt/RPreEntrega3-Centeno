@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const ItemListContainer = ({ addToCart }) => {
   const { categoryId } = useParams();
@@ -11,7 +11,7 @@ const ItemListContainer = ({ addToCart }) => {
       try {
         let apiUrl = 'https://fakestoreapi.com/products';
         if (categoryId) {
-          apiUrl += `?category=${categoryId}`;
+          apiUrl += `/category/${categoryId}`;
         }
 
         const response = await fetch(apiUrl);
@@ -34,17 +34,18 @@ const ItemListContainer = ({ addToCart }) => {
     <div className="container mt-4">
       <h2>Catálogo</h2>
       {categoryId && <h3>Categoría: {categoryId}</h3>}
-      <ul>
+      <div className="item-list">
         {products.map(product => (
-          <li key={product.id}>
-            <h3>{product.title}</h3>
+          <div key={product.id} className="item">
+            <Link to={`/category/${categoryId ? `${categoryId}/` : ''}item/${product.id}`}>
+              <h3>{product.title}</h3>
+            </Link>
             <img src={product.image} alt={product.title} style={{ width: '200px' }} />
-            <p>{product.description}</p>
             <p>Precio: ${product.price}</p>
             <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
