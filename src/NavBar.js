@@ -15,7 +15,7 @@ const NavBar = ({ cartItems }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             {categories.map((category) => {
-              console.log('Category:', category); // Agregar console.log aquí
+              console.log('Category:', category); 
               return (
                 <li className="nav-item" key={category}>
                   <Link to={`/category/${category}`} className="nav-link">{category}</Link>

@@ -35,9 +35,11 @@ const ItemListContainer = ({ addToCart }) => {
       <h2>Catálogo</h2>
       {categoryId && <h3>Categoría: {categoryId}</h3>}
       <div className="item-list">
-        {products.map(product => (
+        {products.map((product) => (
           <div key={product.id} className="item">
-            <Link to={`/category/${categoryId ? `${categoryId}/` : ''}item/${product.id}`}>
+            <Link
+              to={`/category/${product.category}/item/${product.id}`} // Genera el link con la URL adecuada
+            >
               <h3>{product.title}</h3>
             </Link>
             <img src={product.image} alt={product.title} style={{ width: '200px' }} />
