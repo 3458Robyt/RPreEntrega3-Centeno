@@ -1,27 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import CartWidget from './CartWidget';
 
 const NavBar = ({ cartItems }) => {
-  const cartItemCount = cartItems.length;
+  const categories = ['electronics', 'jewelery', "men's clothing", "women's clothing"];
 
   return (
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand as={Link} to="/">Mi Tienda</Navbar.Brand>
-        <CartWidget cartItemCount={cartItemCount} />
-        <Nav className="me-auto">
-          <Nav.Link as={Link} to="/" exact activeClassName="active">Home</Nav.Link>
-          <Nav.Link as={Link} to="/category/electronics" activeClassName="active">Electronics</Nav.Link>
-          <Nav.Link as={Link} to="/category/jewelery" activeClassName="active">Jewelery</Nav.Link>
-          <Nav.Link as={Link} to="/category/men's%20clothing" activeClassName="active">Men's Clothing</Nav.Link>
-          <Nav.Link as={Link} to="/category/women's%20clothing" activeClassName="active">Women's Clothing</Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
+        <Link to="/" className="navbar-brand">Mi Tienda</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav me-auto">
+            {categories.map((category) => {
+              console.log('Category:', category); // Agregar console.log aquí
+              return (
+                <li className="nav-item" key={category}>
+                  <Link to={`/category/${category}`} className="nav-link">{category}</Link>
+                </li>
+              );
+            })}
+          </ul>
+          <CartWidget cartItemCount={cartItems.length} />
+        </div>
+      </div>
+    </nav>
   );
 };
 
