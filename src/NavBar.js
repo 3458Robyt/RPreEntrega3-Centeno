@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
-const NavBar = ({ cartItems }) => {
+const NavBar = () => {
   const categories = ['electronics', 'jewelery', "men's clothing", "women's clothing"];
 
   return (
@@ -14,16 +14,13 @@ const NavBar = ({ cartItems }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
-            {categories.map((category) => {
-              console.log('Category:', category); 
-              return (
-                <li className="nav-item" key={category}>
-                  <Link to={`/category/${category}`} className="nav-link">{category}</Link>
-                </li>
-              );
-            })}
+            {categories.map((category) => (
+              <li className="nav-item" key={category}>
+                <Link to={`/category/${category}`} className="nav-link">{category}</Link>
+              </li>
+            ))}
           </ul>
-          <CartWidget cartItemCount={cartItems.length} />
+          <CartWidget />
         </div>
       </div>
     </nav>

@@ -1,19 +1,20 @@
 import React from 'react';
-import { BsCartFill } from 'react-icons/bs';
-import Badge from 'react-bootstrap/Badge';
 import { Link } from 'react-router-dom';
+import { useCartContext } from './CartContext';
 
-const CartWidget = ({ cartItemCount }) => {
+const CartWidget = () => {
+  const { cartItems } = useCartContext();
+
   return (
-    <div className="cart-widget">
+    <div className="cart-widget bg-white">
       <Link to="/cart">
-        <BsCartFill className="cart-icon" style={{ color: 'white' }} />
-        {cartItemCount > 0 && (
-          <Badge pill bg="dark" className="cart-notification">
-            {cartItemCount}
-          </Badge>
-        )}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart3 cart-icon" viewBox="0 0 16 16">
+          {/* SVG code for your cart icon */}
+        </svg>
       </Link>
+      <span className="cart-notification">
+        {cartItems.length}
+      </span>
     </div>
   );
 };
