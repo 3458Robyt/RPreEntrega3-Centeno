@@ -20,15 +20,12 @@ const Cart = () => {
             <div key={product.id} className="itemContainer">
               <div className="itemContainerLeft">
                 <Link to={`/details/${product.id}`}>
-                  <img src={product.img} alt={product.id} className="imgCart"/>
+                  <img src={product.image} alt={product.id} className="imgCart"/>
                 </Link>
               </div>
               <div className="textCart itemContainerRight">
                 <div>
-                  <p>#0{product.id}</p>
-                  <p>Date of collection - {product.category}</p>
-                  <p>Stock available - {product.stock}</p>
-                  <p>Contract - {product.contract}</p>
+                  <p>{product.title}</p>
                   <p>Price - {product.price} $</p>
                 </div>
                 <p

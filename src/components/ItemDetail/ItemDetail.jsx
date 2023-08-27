@@ -4,7 +4,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({ productDetails }) => {
-  const { id, price, category, image, description } = productDetails;
+  const { id, price, category, image, description, title } = productDetails;
   const { addToCart } = useContext(CartContext);
   console.log("ide de producto itemdetail:", productDetails.id);
 
@@ -18,10 +18,14 @@ const ItemDetail = ({ productDetails }) => {
         <img src={image} alt={id} />
         <div className="detailsContainer">
           <div>
-            <p>#0{id}</p>
+            <p>{title}</p>
+            <br></br>
             <p>Category - {category}</p>
+            <br></br>
             <p>Description - {description}</p>
+            <br></br>
             <p>Price - {price} $</p>
+            <br></br>
           </div>
           <div>
             <div className="buyPrice">

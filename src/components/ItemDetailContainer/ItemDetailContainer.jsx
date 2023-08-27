@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import Loader from "../Loader/Loader";
-import "./ItemDetailContainer.css";
-import { getDatabase, ref, get, child } from "firebase/database";
+import { getDatabase, ref, get, forEachChild, child } from "firebase/database";
 
 const ItemDetailContainer = () => {
   const [productDetails, setProductDetails] = useState({});
@@ -12,13 +11,18 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     const db = getDatabase();
-    const itemsRef = ref(db, 'products'); // Change to your Realtime Database reference
+    const itemsRef = ref(db, 'products');
 
-    get(child(itemsRef, productId))
+    get(itemsRef)
       .then((snapshot) => {
-        if (snapshot.exists()) {
-          setProductDetails({ id: snapshot.key, ...snapshot.val() });
-        }
+        console.log("All Products:", snapshot.val()); // Add this line to log all products
+        snapshot.forEach((childSnapshot) => {
+          const product = childSnapshot.val();
+          if (product.id == productId) {
+            setProductDetails({ id: childSnapshot.key, ...product });
+            console.log("Loaded Product Details:", product);
+          }
+        });
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));

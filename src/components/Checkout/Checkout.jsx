@@ -40,14 +40,11 @@ const Checkout = () => {
           {cartList.map((product) => (
             <div key={product.id} className="itemContainer">
               <div className="itemContainerLeft">
-                <img src={product.img} className="imgCart" alt={product.id} />
+                <img src={product.image} className="imgCart" alt={product.id} />
               </div>
               <div className="textCart itemContainerRight">
                 <div>
-                  <p>#0{product.id}</p>
-                  <p>Date of collection - {product.category}</p>
-                  <p>Stock available - {product.stock}</p>
-                  <p>Contract - {product.contract}</p>
+                  <p>{product.title}</p>
                   <p>Price - {product.price} $</p>
                 </div>
               </div>

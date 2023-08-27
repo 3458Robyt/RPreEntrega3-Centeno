@@ -1,7 +1,8 @@
 import React from 'react';
 import Item from "../Item/Item";
 
-const ItemList = ({productsList}) => {
+const ItemList = ({ productsList }) => {
+
   return (
     <>
       {productsList.map((product) => (
@@ -12,6 +13,5 @@ const ItemList = ({productsList}) => {
       ))}
     </>
   );
-}
-
+};
 export default ItemList
