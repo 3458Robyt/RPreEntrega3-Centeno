@@ -6,7 +6,6 @@ import { CartContext } from "../../context/CartContext";
 const ItemDetail = ({ productDetails }) => {
   const { id, price, category, image, description, title } = productDetails;
   const { addToCart } = useContext(CartContext);
-  console.log("ide de producto itemdetail:", productDetails.id);
 
   const handlerOnAdd = (toCart) => {
     addToCart({ ...productDetails, toCart: toCart });

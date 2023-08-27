@@ -4,7 +4,6 @@ import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
 export default function CartLogo() {
-  // get what i'm going to use
   const { qtyItem } = useCartContext();
 
   return (

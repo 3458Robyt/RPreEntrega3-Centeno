@@ -5,7 +5,6 @@ import NotFound from "../NotFound/NotFound";
 import "./Cart.css";
 
 const Cart = () => {
-  // import "tools" (variables and functions) of context
   const { cartList, cleanCart, deleteItem, qtyItem, totalPrice } =
     useCartContext();
 

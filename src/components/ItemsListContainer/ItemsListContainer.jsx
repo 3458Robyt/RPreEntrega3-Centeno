@@ -12,9 +12,8 @@ const ItemsListContainer = () => {
 
   useEffect(() => {
     const db = getDatabase();
-    const itemsRef = ref(db, 'products'); // Change to your Realtime Database reference
+    const itemsRef = ref(db, 'products'); 
 
-    // Create a query to filter by category if categoryId is provided
     const itemsQuery = categoryId
       ? query(itemsRef, orderByChild('category'), equalTo(categoryId))
       : itemsRef;

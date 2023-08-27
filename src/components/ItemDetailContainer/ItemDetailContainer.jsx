@@ -15,12 +15,10 @@ const ItemDetailContainer = () => {
 
     get(itemsRef)
       .then((snapshot) => {
-        console.log("All Products:", snapshot.val()); // Add this line to log all products
         snapshot.forEach((childSnapshot) => {
           const product = childSnapshot.val();
           if (product.id == productId) {
             setProductDetails({ id: childSnapshot.key, ...product });
-            console.log("Loaded Product Details:", product);
           }
         });
       })
