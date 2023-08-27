@@ -18,6 +18,7 @@ const ItemsListContainer = () => {
     const itemsQuery = categoryId
       ? query(itemsRef, orderByChild('category'), equalTo(categoryId))
       : itemsRef;
+      
     get(itemsQuery)
       .then((snapshot) => {
         const data = [];

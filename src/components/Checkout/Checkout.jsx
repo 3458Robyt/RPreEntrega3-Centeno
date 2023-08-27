@@ -48,7 +48,7 @@ const Checkout = () => {
                   <p>Date of collection - {product.category}</p>
                   <p>Stock available - {product.stock}</p>
                   <p>Contract - {product.contract}</p>
-                  <p>Price - {product.price} ETH</p>
+                  <p>Price - {product.price} $</p>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@ const Checkout = () => {
             </div>
             <div className="totalCartData">
               <p>Total price</p>
-              <p>ETH {totalPrice()}</p>
+              <p>$ {totalPrice()}</p>
             </div>
           </div>
 

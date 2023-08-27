@@ -8,19 +8,19 @@ const Filter = () => {
       <h2 className="filterTitle">Categoría</h2>
       <div className="filterLinkContainer">
         <p className="linkFilter">
-          <Link to={"/"}>Todas</Link>
+          <Link to={"/"}>All</Link>
         </p>
         <p className="linkFilter">
-          <Link to={"/Men's clothing"}>Ropa de Hombre</Link>
+          <Link to={"/category/men's clothing"}>Ropa de Hombre</Link>
         </p>
         <p className="linkFilter">
-          <Link to={"/Women's clothing"}>Ropa de Mujer</Link>
+          <Link to={"/category/women's clothing"}>Ropa de Mujer</Link>
         </p>
         <p className="linkFilter">
-          <Link to={"/Jewelery"}>Joyas</Link>
+          <Link to={"/category/jewelery"}>Joyas</Link>
         </p>
         <p className="linkFilter">
-          <Link to={"/Electronics"}>Electrónica</Link>
+          <Link to={"/category/electronics"}>Electrónica</Link>
         </p>
       </div>
     </div>

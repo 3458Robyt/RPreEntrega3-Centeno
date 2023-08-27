@@ -29,7 +29,7 @@ const Cart = () => {
                   <p>Date of collection - {product.category}</p>
                   <p>Stock available - {product.stock}</p>
                   <p>Contract - {product.contract}</p>
-                  <p>Price - {product.price} ETH</p>
+                  <p>Price - {product.price} $</p>
                 </div>
                 <p
                   className="btnDelete"
@@ -49,7 +49,7 @@ const Cart = () => {
             </div>
             <div className="totalCartData">
               <p>Total price</p>
-              <p>ETH {totalPrice()}</p>
+              <p>$ {totalPrice()}</p>
             </div>
             <h2 className="complete">Go buying!</h2>
             <div className="buttonsCart">
