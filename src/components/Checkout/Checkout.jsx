@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { useCartContext } from './CartContext'; // Update the import path
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import React, { useState } from "react";
+import { useCartContext } from "../../context/CartContext";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import NotFound from "../NotFound/NotFound";
+import "./Checkout.css";
 
 const Checkout = () => {
-  const { cartList, totalPrice, cleanCart } = useCartContext();
+  const { cartList, qtyItem, totalPrice } = useCartContext();
 
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
   const [endBuy, setEndBuy] = useState(false);
 
   const handleSubmit = (e) => {
@@ -19,30 +21,26 @@ const Checkout = () => {
       total: totalPrice(),
     };
     const db = getFirestore();
-    const ordersCollection = collection(db, 'orders');
+    const ordersCollection = collection(db, "orders");
     addDoc(ordersCollection, order);
 
-    setName('');
-    setSurname('');
-    setEmail('');
+    setName("");
+    setSurname("");
+    setEmail("");
     setEndBuy(true);
   };
 
   return (
-    <div className="cartContainer">
+    <>
       {!cartList.length > 0 ? (
         <NotFound />
       ) : (
-        <>
+        <div className="cartContainer">
           <p className="cartTitle">Checkout</p>
           {cartList.map((product) => (
             <div key={product.id} className="itemContainer">
               <div className="itemContainerLeft">
-                <img
-                  src={product.img}
-                  className="imgCart"
-                  alt={product.id}
-                />
+                <img src={product.img} className="imgCart" alt={product.id} />
               </div>
               <div className="textCart itemContainerRight">
                 <div>
@@ -67,11 +65,9 @@ const Checkout = () => {
             </div>
           </div>
 
-          {endBuy === false ? (
+          {endBuy == false ? (
             <form onSubmit={handleSubmit}>
-              <h2 className="complete">
-                Complete the form and finish!
-              </h2>
+              <h2 className="complete">Complete the form and finish!</h2>
               <div className="nameInputs">
                 <input
                   type="text"
@@ -103,15 +99,12 @@ const Checkout = () => {
           ) : (
             <div className="grayBg">
               <h2>Thanks for buy!</h2>
-              <p>
-                You will receive your order once the payment is
-                confirmed.
-              </p>
+              <p>You will receive your order once the payment is confirmed.</p>
             </div>
           )}
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,27 @@
+.filterContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 20px;
+}
+.linkFilter{
+    cursor: pointer;
+    transition: 0.1s;
+}
+.linkFilter:hover{
+    color: #ffffff60;
+    transition: 0.1s;
+}
+.filterLinkContainer{
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    font-weight: bold;
+}
+.filterSelected{
+    text-decoration: underline;
+}
+.filterTitle{
+    font-size: 37px;
+    padding-bottom: 10px;
+}

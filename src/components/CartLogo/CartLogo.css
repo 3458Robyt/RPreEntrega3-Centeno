@@ -1,0 +1,32 @@
+.cartIconCcontainer {
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 23px;
+}
+.cartItems {
+  background-color: #fff;
+  color: #000;
+  border-radius: 15px;
+  padding: 5px 8px 3px 8px;
+  font-size: 12px;
+  margin-left: 22px;
+  text-align: center;
+  font-weight: bold;
+}
+.cartItemsEmpty {
+  border-radius: 15px;
+  padding: 5px 8px 3px 8px;
+  font-size: 12px;
+  margin-left: 22px;
+  text-align: center;
+  font-weight: bold;
+  visibility: hidden;
+}
+.cartIcon {
+  text-align: right;
+  font-size: 28px;
+  position: absolute;
+  margin-top: 10px;
+}

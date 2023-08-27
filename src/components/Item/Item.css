@@ -1,0 +1,33 @@
+.ItemContainer{
+    width: 200px;
+}
+.ItemContainer img{
+    width: 100%;
+}
+.price{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 0 5px 0;
+    font-weight: bold;
+}
+.price p{
+    padding: 0;
+}
+.detailsBtn{
+    padding: 10px;
+    text-align: center;
+    background-color: #ffffff10;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.detailsBtn:hover{
+    transition: 0.1s;
+    background-color: #ffffff40;
+}
+@media (max-width: 500px) {
+    .ItemContainer{
+        width: 100%;
+    }
+}

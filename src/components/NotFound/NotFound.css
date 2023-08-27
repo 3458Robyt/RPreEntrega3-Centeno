@@ -1,0 +1,24 @@
+.notFoundContainer {
+    min-height: 82.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    font-size: 30px;
+  }
+  .notFoundContainer a {
+    padding: 12px 10px 0px 10px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #ffffff10;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.1s;
+    width: 100%;
+  }
+  .notFoundContainer a:hover {
+    transition: 0.1s;
+    background-color: #ffffff40;
+  }

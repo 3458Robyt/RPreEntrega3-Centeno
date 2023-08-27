@@ -1,26 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './NavBar';
-import ItemListContainer from './ItemListContainer';
-import ItemDetailContainer from './ItemDetailContainer';
-import Cart from './Cart';
-import { CartProvider } from './CartContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from "./components/Navbar/Navbar";
+import Cart from "./components/Cart/Cart";
+import Checkout from './components/Checkout/Checkout'
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import CartContextProvider from "./context/CartContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomeContainer from "./components/HomeContainer/HomeContainer";
 
-const App = () => {
+function App() {
+  document.title = "E-commerce";
+
   return (
-    <Router>
-      <CartProvider>
-        <NavBar />
+    <CartContextProvider>
+      <BrowserRouter>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route exact path="/" element={<HomeContainer />} />
+          <Route
+            exact
+            path="/details/:productId"
+            element={<ItemDetailContainer />}
+          />
+          <Route exact path="/:categoryId" element={<HomeContainer />} />
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/checkout" element={<Checkout />} />
         </Routes>
-      </CartProvider>
-    </Router>
+      </BrowserRouter>
+    </CartContextProvider>
   );
-};
+}
 
 export default App;
