@@ -31,8 +31,4 @@ Este proyecto es una aplicación de E-Commerce desarrollada con React y React Ro
 - Agregar animaciones y transiciones para mejorar la experiencia del usuario.
 - Implementar un backend para manejar el procesamiento de las compras y el carrito de compras.
 
-## Contribución
-
-Las contribuciones son bienvenidas. Si tienes alguna idea para mejorar esta aplicación, puedes enviar un pull request o abrir un issue.
-
 
